@@ -48,5 +48,332 @@ textarea{resize:vertical;line-height:1.5}
 .sheet-list{display:grid;gap:8px}.sheet-card{display:flex;align-items:center;gap:14px;padding:15px;background:#0d0f0f;border:1px solid var(--line)}.sheet-card:hover{border-color:#5d584e}.sheet-card>div:nth-child(2){flex:1;display:flex;flex-direction:column;gap:4px}.sheet-card span{font-size:12px;color:var(--muted)}.sheet-icon{width:38px;height:38px;display:grid;place-items:center;background:#1b1e1d;color:var(--accent);border-radius:4px}
 .empty-state{padding:35px;text-align:center;color:var(--muted);border:1px dashed var(--line)}
 .repeat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.repeat-card{padding:16px;border:1px solid var(--line);background:#0c0e0e}.repeat-card h3{font:600 21px "Barlow Condensed";margin:0 0 15px;color:#d6d0c5}.repeat-card label{margin-bottom:10px}.npc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media(max-width:900px){.app-layout{grid-template-columns:70px 1fr}.sidebar{padding:22px 8px}.sidebar-brand{font-size:18px;text-align:center}.sidebar nav a{justify-content:center}.sidebar nav span,.sidebar-brand span,.logout{font-size:0}.sidebar nav a{font-size:19px}.attribute-grid{grid-template-columns:1fr 1fr}.two-col,.repeat-grid{grid-template-columns:1fr}.npc-grid{grid-template-columns:1fr}.content{padding:28px 18px}.form-grid.three{grid-template-columns:1fr 1fr}}
-@media(max-width:650px){.login-shell{grid-template-columns:1fr}.brand-panel{display:none}.auth-card{padding:45px 28px}.stats-grid{grid-template-columns:1fr}.hero-card{align-items:flex-start;flex-direction:column}.topbar{align-items:flex-start;gap:15px;flex-direction:column}.topbar h1{font-size:35px}.attribute-grid,.form-grid.two,.form-grid.three{grid-template-columns:1fr}}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+/* Tablets e telas menores */
+@media (max-width: 1100px) {
+  .content {
+    padding: 32px 28px 70px;
+  }
+
+  .attribute-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-grid.three {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .npc-grid,
+  .repeat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Celular / tablet pequeno */
+@media (max-width: 800px) {
+  .app-layout {
+    display: block;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 10px 12px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    display: block;
+    background: rgba(11, 12, 12, 0.97);
+    backdrop-filter: blur(12px);
+  }
+
+  .sidebar-brand {
+    display: none;
+  }
+
+  .sidebar nav {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .sidebar nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar nav a {
+    flex: 0 0 auto;
+    min-width: 78px;
+    justify-content: center;
+    padding: 10px 9px;
+    font-size: 12px;
+    white-space: nowrap;
+    border-left: 0 !important;
+  }
+
+  .sidebar nav a.active {
+    border-bottom: 2px solid var(--accent) !important;
+  }
+
+  .sidebar nav a span {
+    display: inline;
+    font-size: 12px;
+  }
+
+  .logout {
+    position: absolute;
+    right: 12px;
+    top: 11px;
+    margin: 0;
+    padding: 8px 10px;
+    font-size: 0;
+    width: 34px;
+    height: 34px;
+  }
+
+  .logout::after {
+    content: "↪";
+    font-size: 17px;
+  }
+
+  .content {
+    width: 100%;
+    padding: 24px 14px 55px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .topbar h1 {
+    font-size: 36px;
+  }
+
+  .hero-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+  }
+
+  .hero-card h2 {
+    font-size: 28px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .two-col,
+  .form-grid.two,
+  .form-grid.three {
+    grid-template-columns: 1fr;
+  }
+
+  .attribute-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .condition-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .table-wrap {
+    margin-left: -18px;
+    margin-right: -18px;
+    padding: 0 18px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 620px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 520px) {
+  .content {
+    padding: 20px 10px 45px;
+  }
+
+  .topbar h1 {
+    font-size: 31px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+  }
+
+  .panel {
+    padding: 15px;
+    margin-bottom: 12px;
+  }
+
+  .section-heading h2 {
+    font-size: 25px;
+  }
+
+  .attribute-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .attribute {
+    padding: 14px;
+  }
+
+  .form-grid.three,
+  .form-grid.two {
+    grid-template-columns: 1fr;
+  }
+
+  input,
+  textarea {
+    padding: 11px;
+    font-size: 14px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .hero-card .btn {
+    width: 100%;
+  }
+
+  .sheet-card {
+    padding: 13px;
+  }
+
+  .sheet-card > b {
+    font-size: 18px;
+  }
+
+  .sidebar {
+    padding-right: 52px;
+  }
+
+  .sidebar nav {
+    justify-content: flex-start;
+  }
+
+  .sidebar nav a {
+    min-width: 72px;
+  }
+
+  .repeat-card {
+    padding: 13px;
+  }
+
+  .npc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Evita que títulos e controles estourem a tela */
+  .section-heading,
+  .topbar,
+  .hero-card {
+    min-width: 0;
+  }
+
+  /* Formulários e tabelas nunca ultrapassam a viewport */
+  form,
+  .panel,
+  .table-wrap {
+    max-width: 100%;
+  }
+}
+
+/* Login responsivo */
+@media (max-width: 700px) {
+  .login-page {
+    padding: 12px;
+  }
+
+  .login-shell {
+    width: 100%;
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .brand-panel {
+    display: flex;
+    min-height: 280px;
+    padding: 38px 28px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand-panel h1 {
+    font-size: clamp(54px, 17vw, 78px);
+    margin: 15px 0;
+  }
+
+  .brand-panel p {
+    margin: 0;
+  }
+
+  .quote {
+    margin-top: 25px;
+    font-size: 18px;
+  }
+
+  .auth-card {
+    padding: 35px 25px 40px;
+  }
+
+  .auth-card h2 {
+    margin-top: 30px;
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-panel {
+    min-height: 240px;
+    padding: 30px 22px;
+  }
+
+  .brand-panel h1 {
+    font-size: 52px;
+  }
+
+  .brand-panel p {
+    font-size: 13px;
+  }
+
+  .quote {
+    display: none;
+  }
+
+  .auth-card {
+    padding: 30px 20px 35px;
+  }
+
+  .auth-card h2 {
+    font-size: 33px;
+  }
+}

@@ -61,3 +61,7 @@ A ficha é salva automaticamente no Firestore depois de alterações, com deboun
 ## Observação
 
 Os nomes dos campos foram baseados na ficha enviada. A página 1 contém Nome, Arquétipo, Descrição, Motivação, Peculiaridades, Âncoras, Anotações, Vigor, Agilidade, Perspicácia, Empatia, perícias, Talentos, Vida, Estresse, Experiência, Espaços de Sobrecarga, Equipamento, Armas, Armadura, Equipamento Armazenado e Itens Minúsculos. As páginas seguintes acrescentam Refúgio, PNJs Sobreviventes, Desafios, Facções, Rumores, Relógios e Registro de Viagem.
+
+## Salvamento da ficha
+
+A ficha do personagem usa um ID persistente por usuário quando aberta sem `?id=`. Isso evita criar uma ficha vazia diferente a cada atualização da página. As alterações são salvas automaticamente após uma pequena pausa e o indicador no topo mostra `Salvando...`, `Salvo agora` ou o código do erro do Firebase.
