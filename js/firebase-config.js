@@ -5,12 +5,13 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "COLOQUE_SUA_API_KEY",
-  authDomain: "SEU-PROJETO.firebaseapp.com",
-  projectId: "SEU-PROJETO",
-  storageBucket: "SEU-PROJETO.firebasestorage.app",
-  messagingSenderId: "COLOQUE_SEU_SENDER_ID",
-  appId: "COLOQUE_SEU_APP_ID"
+  apiKey: "AIzaSyA_XXdAoipcIEVvooJSnSbMdutypDSX3FY",
+  authDomain: "twd-rpg.firebaseapp.com",
+  projectId: "twd-rpg",
+  storageBucket: "twd-rpg.firebasestorage.app",
+  messagingSenderId: "416242092731",
+  appId: "1:416242092731:web:2e78df5d96f8f8c611379e",
+  measurementId: "G-YN6EYXRJG3"
 };
 
 const app = initializeApp(firebaseConfig);
