@@ -377,3 +377,11 @@ textarea{resize:vertical;line-height:1.5}
     font-size: 33px;
   }
 }
+
+.topbar-actions{display:flex;align-items:center;gap:14px}
+.manual-save{min-width:145px}
+.manual-save:disabled{opacity:.55;cursor:wait}
+@media (max-width:520px){
+  .topbar-actions{width:100%;flex-direction:column;align-items:stretch}
+  .manual-save{width:100%}
+}

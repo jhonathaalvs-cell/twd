@@ -4,6 +4,7 @@ import { loadSheet, saveSheet, debounce } from "./firestore.js";
 
 const form = document.querySelector("#characterForm");
 const status = document.querySelector("#saveStatus");
+const manualSaveButton = document.querySelector("#manualSave");
 const params = new URLSearchParams(location.search);
 
 const defaults = {
@@ -79,9 +80,10 @@ function setStatus(text, type = "") {
 
 let currentUser = null;
 let fichaId = null;
+let loaded = false;
 
 const save = debounce(async () => {
-  if (!currentUser || !fichaId) return;
+  if (!currentUser || !fichaId || !loaded) return;
 
   setStatus("Salvando...", "saving");
   try {
@@ -109,12 +111,31 @@ onAuthStateChanged(auth, async user => {
     setStatus("Carregando...");
     const data = await loadSheet(user.uid, fichaId, defaults);
     setForm({ ...defaults, ...data });
+    loaded = true;
     setStatus("Salvo");
 
     // Listener é adicionado somente depois de carregar os dados,
     // evitando salvar os campos vazios antes da ficha ser carregada.
     form.addEventListener("input", save);
     form.addEventListener("change", save);
+
+    manualSaveButton?.addEventListener("click", async () => {
+      if (!loaded || !currentUser || !fichaId) return;
+      manualSaveButton.disabled = true;
+      setStatus("Salvando...", "saving");
+      try {
+        await saveSheet(currentUser.uid, fichaId, {
+          ...collect(),
+          tipo: "personagem"
+        });
+        setStatus("Salvo agora");
+      } catch (error) {
+        console.error("Erro ao salvar ficha:", error);
+        setStatus(`Erro: ${error.code || "verifique o Firebase"}`);
+      } finally {
+        manualSaveButton.disabled = false;
+      }
+    });
 
     document.querySelector("#logout").addEventListener("click", () => signOut(auth));
   } catch (error) {

@@ -65,3 +65,6 @@ Os nomes dos campos foram baseados na ficha enviada. A página 1 contém Nome, A
 ## Salvamento da ficha
 
 A ficha do personagem usa um ID persistente por usuário quando aberta sem `?id=`. Isso evita criar uma ficha vazia diferente a cada atualização da página. As alterações são salvas automaticamente após uma pequena pausa e o indicador no topo mostra `Salvando...`, `Salvo agora` ou o código do erro do Firebase.
+
+## Salvamento
+Além do salvamento automático, as páginas possuem botão de salvamento manual. O status mostra quando os dados foram enviados ao Firestore ou quando ocorreu um erro.

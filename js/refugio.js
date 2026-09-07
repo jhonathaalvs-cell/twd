@@ -4,6 +4,7 @@ import { loadSheet, saveSheet, debounce } from "./firestore.js";
 
 const form = document.querySelector("#refugeForm");
 const status = document.querySelector("#saveStatus");
+const manualSaveButton = document.querySelector("#manualSave");
 const id = new URLSearchParams(location.search).get("id") || "principal";
 
 document.querySelector("#projectRows").innerHTML = Array.from({length:4}, (_, i) => `
@@ -26,8 +27,13 @@ const save = debounce(async user => {
   catch { status.textContent = "● Erro ao salvar"; }
 }, 700);
 
+manualSaveButton?.addEventListener("click", () => {
+  if (window.__currentUser) save(window.__currentUser);
+});
+
 onAuthStateChanged(auth, async user => {
   if (!user) return location.href = "../index.html";
+  window.__currentUser = user;
   setForm(await loadSheet(user.uid, `refugio_${id}`, {}));
   form.addEventListener("input", () => save(user));
   document.querySelector("#logout").addEventListener("click", () => signOut(auth));

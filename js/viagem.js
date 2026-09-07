@@ -4,6 +4,7 @@ import { loadSheet, saveSheet, debounce } from "./firestore.js";
 
 const form = document.querySelector("#travelForm");
 const status = document.querySelector("#saveStatus");
+const manualSaveButton = document.querySelector("#manualSave");
 const id = new URLSearchParams(location.search).get("id") || "principal";
 
 const fields = ["coordenadas","data","terreno","ameaca","comentarios"];
@@ -19,8 +20,13 @@ const save = debounce(async user => {
   catch { status.textContent = "● Erro ao salvar"; }
 }, 700);
 
+manualSaveButton?.addEventListener("click", () => {
+  if (window.__currentUser) save(window.__currentUser);
+});
+
 onAuthStateChanged(auth, async user => {
   if (!user) return location.href = "../index.html";
+  window.__currentUser = user;
   setForm(await loadSheet(user.uid, `viagem_${id}`, {}));
   form.addEventListener("input", () => save(user));
   document.querySelector("#logout").addEventListener("click", () => signOut(auth));

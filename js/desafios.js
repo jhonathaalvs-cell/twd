@@ -4,6 +4,7 @@ import { loadSheet, saveSheet, debounce } from "./firestore.js";
 
 const form = document.querySelector("#challengeForm");
 const status = document.querySelector("#saveStatus");
+const manualSaveButton = document.querySelector("#manualSave");
 const id = new URLSearchParams(location.search).get("id") || "principal";
 
 function setForm(data) { for (const el of form.elements) if (el.name) el.value = data[el.name] ?? ""; }
@@ -14,8 +15,13 @@ const save = debounce(async user => {
   catch { status.textContent = "● Erro ao salvar"; }
 }, 700);
 
+manualSaveButton?.addEventListener("click", () => {
+  if (window.__currentUser) save(window.__currentUser);
+});
+
 onAuthStateChanged(auth, async user => {
   if (!user) return location.href = "../index.html";
+  window.__currentUser = user;
   setForm(await loadSheet(user.uid, `desafios_${id}`, {}));
   form.addEventListener("input", () => save(user));
   document.querySelector("#logout").addEventListener("click", () => signOut(auth));
