@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TWD RPG • Ficha</title><link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app-layout">
+<aside class="sidebar">
+  <div class="sidebar-brand">TWD <span>RPG</span></div>
+  <nav>
+    <a href="../dashboard.html">▦ <span>Painel</span></a><a class="active" href="ficha.html">♟ <span>Personagem</span></a>
+    <a href="refugio.html">⌂ <span>Refúgio</span></a><a href="desafios.html">⚠ <span>Desafios</span></a><a href="viagem.html">⌖ <span>Viagem</span></a>
+  </nav><button class="logout" id="logout">Sair</button>
+</aside>
+<main class="content">
+<header class="topbar"><div><span class="eyebrow">FICHA DO PERSONAGEM</span><h1>Sobrevivente</h1></div><div id="saveStatus" class="save-status">● Salvo</div></header>
+
+<form id="characterForm" class="form-stack">
+<section class="panel character-head">
+  <div class="section-heading"><div><span class="eyebrow">IDENTIDADE</span><h2>Quem você era antes?</h2></div></div>
+  <div class="form-grid three">
+    <label>Nome<input name="nome"></label><label>Arquétipo<input name="arquetipo"></label><label>Descrição<input name="descricao"></label>
+    <label>Motivação<input name="motivacao"></label><label>PJ Âncora<input name="pjAncora"></label><label>PNJ Âncora<input name="pnjAncora"></label>
+  </div>
+  <label>Peculiaridades<textarea name="peculiaridades" rows="3"></textarea></label>
+  <label>Anotações<textarea name="anotacoes" rows="4"></textarea></label>
+</section>
+
+<section class="panel">
+  <div class="section-heading"><div><span class="eyebrow">ATRIBUTOS E PERÍCIAS</span><h2>Capacidades</h2></div></div>
+  <div class="attribute-grid">
+    <div class="attribute"><h3>VIGOR</h3><label>Combate Próximo<input name="vigorCombate" type="number" min="0"></label><label>Tolerância<input name="vigorTolerancia" type="number" min="0"></label><label>Força<input name="vigorForca" type="number" min="0"></label></div>
+    <div class="attribute"><h3>AGILIDADE</h3><label>Mobilidade<input name="agilidadeMobilidade" type="number" min="0"></label><label>Combate à Distância<input name="agilidadeDistancia" type="number" min="0"></label><label>Furtividade<input name="agilidadeFurtividade" type="number" min="0"></label></div>
+    <div class="attribute"><h3>PERSPICÁCIA</h3><label>Reconhecimento<input name="perspicaciaReconhecimento" type="number" min="0"></label><label>Sobrevivência<input name="perspicaciaSobrevivencia" type="number" min="0"></label><label>Tecnologia<input name="perspicaciaTecnologia" type="number" min="0"></label></div>
+    <div class="attribute"><h3>EMPATIA</h3><label>Liderança<input name="empatiaLideranca" type="number" min="0"></label><label>Manipulação<input name="empatiaManipulacao" type="number" min="0"></label><label>Medicina<input name="empatiaMedicina" type="number" min="0"></label></div>
+  </div>
+</section>
+
+<section class="two-col">
+<section class="panel">
+  <div class="section-heading"><div><span class="eyebrow">CONDIÇÃO</span><h2>Vida & estado</h2></div></div>
+  <div class="condition-grid">
+    <label>3. ILESO<input name="vidaIleso" type="checkbox"></label><label>2. MACHUCADO<input name="vidaMachucado" type="checkbox"></label>
+    <label>1. SURRADO<input name="vidaSurrado" type="checkbox"></label><label>0. QUEBRADO<input name="vidaQuebrado" type="checkbox"></label>
+  </div>
+  <label>Lesões Críticas<textarea name="lesoesCriticas" rows="4"></textarea></label>
+  <div class="form-grid three">
+    <label>Estresse<input name="estresse" type="number" min="0"></label><label>Experiência<input name="experiencia" type="number" min="0"></label><label>Espaços de Sobrecarga<input name="sobrecarga" type="number" min="0"></label>
+  </div>
+</section>
+<section class="panel">
+  <div class="section-heading"><div><span class="eyebrow">TALENTOS</span><h2>Talentos</h2></div></div>
+  <textarea name="talentos" rows="12" placeholder="Um talento por linha..."></textarea>
+</section>
+</section>
+
+<section class="panel">
+  <div class="section-heading"><div><span class="eyebrow">EQUIPAMENTO</span><h2>O que você carrega?</h2></div></div>
+  <div class="table-wrap"><table><thead><tr><th>Armas</th><th>Dano</th><th>Bônus</th><th>Alcance</th></tr></thead><tbody id="weaponsRows"></tbody></table></div>
+  <div class="table-wrap"><table><thead><tr><th>Armadura</th><th>Proteção</th><th>Penalidade</th></tr></thead><tbody><tr><td><input name="armaduraNome"></td><td><input name="armaduraProtecao"></td><td><input name="armaduraPenalidade"></td></tr></tbody></table></div>
+  <div class="form-grid two"><label>Equipamento Armazenado<textarea name="equipamentoArmazenado" rows="6"></textarea></label><label>Itens Minúsculos<textarea name="itensMinusculos" rows="6"></textarea></label></div>
+</section>
+</form>
+</main></div>
+<script type="module" src="../js/ficha.js"></script>
+</body></html>

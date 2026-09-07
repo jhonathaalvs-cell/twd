@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TWD RPG • Acesso</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+  <main class="login-shell">
+    <section class="brand-panel">
+      <span class="eyebrow">THE WALKING DEAD UNIVERSE</span>
+      <h1>RPG<br><strong>Survivors Hub</strong></h1>
+      <p>Suas fichas, refúgios, desafios e registros de viagem em um único lugar.</p>
+      <div class="quote">“O mundo acabou. A história de vocês não.”</div>
+    </section>
+
+    <section class="auth-card">
+      <div class="brand-mark">TWD<span>RPG</span></div>
+      <h2 id="authTitle">Entrar</h2>
+      <p class="muted" id="authSubtitle">Acesse sua campanha e suas fichas.</p>
+
+      <form id="authForm">
+        <label>E-mail<input id="email" type="email" autocomplete="email" required></label>
+        <label>Senha<input id="password" type="password" minlength="6" autocomplete="current-password" required></label>
+        <button class="btn btn-primary" type="submit" id="authButton">Entrar</button>
+      </form>
+
+      <button class="link-button" id="toggleAuth">Ainda não tenho conta</button>
+      <p class="form-message" id="authMessage"></p>
+    </section>
+  </main>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

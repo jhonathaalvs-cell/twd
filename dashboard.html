@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TWD RPG • Painel</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">TWD <span>RPG</span></div>
+      <nav>
+        <a class="active" href="dashboard.html">▦ <span>Painel</span></a>
+        <a href="pages/ficha.html">♟ <span>Personagem</span></a>
+        <a href="pages/refugio.html">⌂ <span>Refúgio</span></a>
+        <a href="pages/desafios.html">⚠ <span>Desafios</span></a>
+        <a href="pages/viagem.html">⌖ <span>Viagem</span></a>
+      </nav>
+      <button class="logout" id="logout">Sair da conta</button>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">CAMPANHA</span>
+          <h1>Painel do sobrevivente</h1>
+        </div>
+        <div class="user-chip" id="userEmail">...</div>
+      </header>
+
+      <section class="hero-card">
+        <div>
+          <span class="eyebrow">SEU ARQUIVO</span>
+          <h2>Sobreviva. Registre. Continue.</h2>
+          <p>Crie e mantenha sua ficha digital sincronizada com o mestre.</p>
+        </div>
+        <a class="btn btn-primary" href="pages/ficha.html">Abrir ficha</a>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card"><span>FICHAS</span><strong id="sheetCount">0</strong></article>
+        <article class="stat-card"><span>STATUS</span><strong class="online">ONLINE</strong></article>
+        <article class="stat-card"><span>SALVAMENTO</span><strong>AUTO</strong></article>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div><span class="eyebrow">PERSONAGENS</span><h2>Minhas fichas</h2></div>
+          <a class="btn btn-secondary" href="pages/ficha.html">+ Nova ficha</a>
+        </div>
+        <div id="sheetList" class="sheet-list">
+          <div class="empty-state">Carregando suas fichas...</div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
